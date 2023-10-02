@@ -1,7 +1,7 @@
 {
   "name": "request-middleware",
   "version": "1.0.0",
-  "description": "Middleware function for handling request sessions, including data vlidation and sanitization",
+  "description": "Middleware function for handling request sessions, including data validation and sanitization",
   "author": "majid.jafari <majidted@gmail.com>",
   "license": "MIT",
   "dependencies": {
