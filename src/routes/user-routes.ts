@@ -8,14 +8,14 @@ import { Router } from "../components/router";
 
 export const userRoutes: GroupRoute = (router: Router) => {
   return [
-    () => router.get("/").controller(listUsers),
+    () => router.get("/").authenticate().controller(listUsers),
 
     () =>
       router
         .post("/")
         .authenticate()
         .validation({
-          params: {
+          body: {
             username: Joi.string().required(),
             password: Joi.string().required(),
             firstName: Joi.string().required(),
