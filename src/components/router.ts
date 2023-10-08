@@ -4,14 +4,16 @@ import {
   RequestHandler,
   Response,
 } from "express";
-import { RequestHandlerParams } from "express-serve-static-core";
 import { App } from "./app";
 import { ControllerAction, Methods, RouteProps } from "../types/routing";
 import { InternalServerError } from "./error";
 
 export class Router {
   private routeProps: RouteProps;
-  constructor(public app: App, protected basePath: string) {
+  constructor(
+    public app: App,
+    protected basePath: string
+  ) {
     this.routeProps = {
       path: "",
       method: Methods.Get,
@@ -21,14 +23,11 @@ export class Router {
     return this;
   }
 
-  middleware = <T>(
-    middleware: (...params: [T]) => RequestHandlerParams,
-    ...params: [T]
+  middleware = (
+    middleware: (...params: any[]) => RequestHandler[],
+    ...params: any[]
   ): Router => {
-    this.routeProps.middleware.push(
-      // @ts-ignore
-      middleware.apply(middleware, params)
-    );
+    this.routeProps.middleware.push(middleware.apply(middleware, params));
     return this;
   };
 

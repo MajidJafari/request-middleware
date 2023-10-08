@@ -65,22 +65,10 @@ export class App {
     return this;
   }
 
-  throw(err: ClientError, res: Response) {
-    res.status(err.status || 500);
-    if (err instanceof InternalServerError || res.statusCode === 500) {
-      logger.error("InternalServer ErrorAdaptor", err);
-      err.name = "INTERNAL_SERVER_ERROR";
-      err.message = "Internal Server ErrorAdaptor";
-    }
-    const error = {
-      name: err.name,
-      message: err.message,
-      details: err.details,
-    };
-    res.error = {
-      ...error,
-      status: err.status,
-    };
+  throw(error: ClientError, res: Response) {
+    res.status(error.status || 500);
+    logger.error("Error", error);
+    res.error = error;
     res.send(error);
   }
 

@@ -1,15 +1,16 @@
 import ClientError from "../components/error";
+import { UserJWT } from "./auth";
 
 export interface CustomObject<T = any> {
-	[key: string]: T;
+  [key: string]: T;
 }
 
 declare global {
-	namespace Express {
-		interface Response {
-			response?: any;
-			error?: ClientError;
-		}
-	}
+  namespace Express {
+    interface Response {
+      user: UserJWT;
+      response?: any;
+      error?: ClientError;
+    }
+  }
 }
-

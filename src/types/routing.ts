@@ -13,7 +13,7 @@ export type GroupRoute = (router: Router) => (() => Router)[];
 export interface RouteProps {
   path: string;
   method: Methods;
-  middleware: RequestHandler[];
+  middleware: RequestHandler[][];
   action: ControllerAction;
 }
 
