@@ -1,0 +1,19 @@
+{
+  "setupFilesAfterEnv": [
+    "jest-extended/all"
+  ],
+  "testTimeout": 120000,
+  "testEnvironment": "node",
+  "transform": {
+    "^.+\\.ts?$": "ts-jest"
+  },
+  "testMatch": [
+    "**/*.test.ts"
+  ],
+  "rootDir": "src",
+  "globals": {
+    "ts-jest": {
+      "tsconfig": "tsconfig.json"
+    }
+  }
+}
