@@ -3,7 +3,7 @@ import bodyParser from "body-parser";
 import logger from "morgan";
 import lusca from "lusca";
 import { App } from "../components/app";
-import "../middlewares/app-middleware/allowOrigin";
+import "../middleware/app-middleware/allowOrigin";
 import { NextFunction, Request, RequestHandler, Response } from "express";
 
 declare module "../components/app" {
@@ -21,6 +21,7 @@ App.prototype.express = function () {
     .use(lusca.xssProtection(true))
     .use(bodyParser.urlencoded({ extended: true }))
     .use(logger("dev") as RequestHandler)
+    .allowOrigin();
 
   return this;
 };

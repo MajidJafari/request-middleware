@@ -18,8 +18,9 @@ export class App {
   readonly expressApp: Express = express();
   config: CustomObject<string | undefined> = {};
 
-  constructor(port: number) {
+  constructor(port: number, env: string) {
     this.set("port", port);
+    this.set("env", env);
     this.initiateConfig();
   }
 
