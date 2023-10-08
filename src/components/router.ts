@@ -24,9 +24,10 @@ export class Router {
   }
 
   middleware = (
-    middleware: (...params: any[]) => RequestHandler[],
+    middleware: (...params: any[]) => RequestHandler | RequestHandler[],
     ...params: any[]
   ): Router => {
+    // @ts-ignore
     this.routeProps.middleware.push(middleware.apply(middleware, params));
     return this;
   };
