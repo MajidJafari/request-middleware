@@ -14,7 +14,7 @@ export interface Oauth2 {
 }
 
 export interface UserJWT
-  extends Omit<IUser, "password" | "refreshToken" | "activated"> {
+  extends Omit<IUser, "password" | "refreshToken" | "activated" | "salt"> {
   id: number | string;
   username: string;
   firstName: string;

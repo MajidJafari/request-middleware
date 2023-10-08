@@ -32,11 +32,13 @@ export class UserRepository implements IBaseRepository<IUser> {
       firstName: "Ali",
       lastName: "Alaki",
       activated: true,
-      password: "fed3b61b26081849378080b34e693d2e",
+      password:
+        "56776e13168def86e53a64fbd5d6d7954331f84e0cd4e36044a81b8f83de19cb495c5a097199c0c8f500a2529b96340d96e36ac8266c2e14f201d5658eb0d53e",
       refreshToken: "a9c80b48-4de2-4471-b13f-4d27394cd535",
       role: Roles.Admin,
       createdAt: now,
       updatedAt: now,
+      salt: Buffer.from("testSalt").toString("hex"),
     };
   }
 }

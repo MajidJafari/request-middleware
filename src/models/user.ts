@@ -8,4 +8,5 @@ export interface IUser extends EntityModel {
   refreshToken: string;
   role: Roles;
   activated: boolean;
+  salt: string;
 }

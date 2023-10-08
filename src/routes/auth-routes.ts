@@ -5,6 +5,7 @@ import "../middleware/authenticate";
 import "../middleware/validation";
 import Joi from "joi";
 import { Router } from "../components/router";
+import { loginController } from "../controllers/auth/login";
 
 export const authRoutes: GroupRoute = (router: Router) => {
   return [
@@ -12,11 +13,11 @@ export const authRoutes: GroupRoute = (router: Router) => {
       router
         .post("/login")
         .validation({
-          params: {
+          body: {
             username: Joi.string().required(),
             password: Joi.string().required(),
           },
         })
-        .controller(listUsers),
+        .controller(loginController),
   ];
 };

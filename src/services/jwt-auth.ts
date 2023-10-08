@@ -80,7 +80,7 @@ export class JwtAuthServices implements IAuthServices {
   }
 
   async verifyUser(userJwt: UserJWT, callback: Function) {
-    const user = this.verify(userJwt);
+    const user = await this.verify(userJwt);
     if (!user) {
       return callback(
         new ClientError(401, "NOT_ACTIVE", "No active token found.", {

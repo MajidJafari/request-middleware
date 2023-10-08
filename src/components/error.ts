@@ -34,7 +34,7 @@ export class InternalServerError extends ClientError {
 }
 
 export class PassportError extends ClientError {
-  constructor(error: Error, statusCode = 401, name = "unAuthorized") {
+  constructor(statusCode = 401, name = "UNAUTHORIZED") {
     super(statusCode, name);
   }
 }
