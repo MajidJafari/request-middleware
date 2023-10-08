@@ -7,6 +7,8 @@ export interface CustomObject<T = any> {
   [key: string]: T;
 }
 
+export type SameResultFunction<T> = (params: T) => T;
+
 declare global {
   namespace Express {
     interface Response {

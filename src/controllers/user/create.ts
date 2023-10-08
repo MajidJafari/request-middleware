@@ -1,12 +1,11 @@
-import { Response } from "express";
-import { IUser } from "../../models/user";
 import { ControllerAction } from "../../types/routing";
+import { UserCreateDTO } from "../../models/dto/create-user.dto";
 
 export const createUser: ControllerAction<
-  Omit<IUser, "password" | "salt">
-> = async (req: { body: IUser }, res, app) => {
-  const user = await app.repositories.userRepository.save(req.body);
-  const { password, salt, ...body } = user;
+  Omit<UserCreateDTO, "password" | "salt">
+> = async (req: { body: UserCreateDTO }, res, app) => {
+  await app.repositories.userRepository.save(req.body);
+  const { password, ...body } = req.body;
 
   res.status(201);
   return body;

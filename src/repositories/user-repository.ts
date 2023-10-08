@@ -1,3 +1,4 @@
+import { UserCreateDTO } from "../models/dto/create-user.dto";
 import { IUser } from "../models/user";
 import { IBaseRepository } from "../types/base-repository";
 import { Promisified } from "../types/global";
@@ -12,7 +13,7 @@ export class UserRepository implements IBaseRepository<IUser> {
     return [this.getMockValue()];
   }
 
-  async save(record: IUser): Promise<IUser> {
+  async save(record: UserCreateDTO): Promise<IUser> {
     return this.getMockValue();
   }
 

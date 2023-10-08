@@ -7,10 +7,13 @@ beforeAll(async () => {
 });
 
 afterAll(() => {
-  if (server.closeAllConnections) {
-    server.closeAllConnections();
+  if (server) {
+    if (server.closeAllConnections) {
+      server.closeAllConnections();
+    }
+    server.close();
+    server.unref();
   }
-  server && server.close() && server.unref();
 });
 
 export const getServer = async (): Promise<Server> => {
