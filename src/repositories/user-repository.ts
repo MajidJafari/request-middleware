@@ -1,8 +1,21 @@
 import { IUser } from "../models/user";
 import { IBaseRepository } from "../types/base-repository";
+import { Promisified } from "../types/global";
 import { Roles } from "../types/models";
 
 export class UserRepository implements IBaseRepository<IUser> {
+  find(query: Partial<IUser>) {
+    return this.getMockValue();
+  }
+
+  list() {
+    return [this.getMockValue()];
+  }
+
+  async save(record: IUser): Promise<IUser> {
+    return this.getMockValue();
+  }
+
   findById(id: string | number): IUser {
     return this.getMockValue(id);
   }
@@ -11,7 +24,7 @@ export class UserRepository implements IBaseRepository<IUser> {
     return this.getMockValue(id);
   }
 
-  private getMockValue(id: string | number): IUser {
+  private getMockValue(id: string | number = "test"): IUser {
     const now = new Date();
     return {
       id,

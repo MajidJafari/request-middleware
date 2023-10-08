@@ -1,6 +1,7 @@
 import e, { RequestHandler } from "express";
 import { App } from "../components/app";
 import { Router } from "../components/router";
+import { Promisified } from "./global";
 
 export enum Methods {
   Get = "get",
@@ -21,4 +22,4 @@ export type ControllerAction<T = any> = (
   req: e.Request,
   res: e.Response,
   app: App
-) => T | Promise<T>;
+) => Promisified<T>;

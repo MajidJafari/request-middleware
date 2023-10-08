@@ -1,6 +1,8 @@
 import ClientError from "../components/error";
 import { UserJWT } from "./auth";
 
+export type Promisified<T> = T | Promise<T>;
+
 export interface CustomObject<T = any> {
   [key: string]: T;
 }
